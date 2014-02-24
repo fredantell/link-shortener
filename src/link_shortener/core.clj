@@ -7,10 +7,13 @@
   {:status 200
    :body (with-out-str (print request))})
 
-(defn run []
-  (defonce server (jetty/run-jetty #'app {:port 8080 :join? false})))
+(defn homepage [request]
+  (with-out-str (print request)))
 
-(defroutes
+(defn redirect [id]
+  id)
+
+(defroutes app
   (GET "/" request (homepage request))
   (GET "/:id" [id] (redirect id)))
 
