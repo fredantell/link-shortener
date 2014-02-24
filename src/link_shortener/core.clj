@@ -35,7 +35,7 @@
   [:ul.links
    (for [x (keys @urls)]
      [:li
-      [:a {:href x} (str (@urls x))]])])
+      [:a {:href x} (str x " --> " (@urls x))]])])
 
 (defn homepage [request]
   (layout/common
